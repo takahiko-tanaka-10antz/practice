@@ -10,7 +10,7 @@
 
 ### 他のアーキテクチャとの違い
 一般的なアーキテクチャだと
-ユーザからのリクエストは Handler で受け取られ、UseCaseを使って処理が行われます。さらに、UseCaseはDomainを使って処理を行う。
+ユーザからのリクエストは Handler で受け取られ、UseCaseを使って処理が行われる。さらに、UseCaseはDomainを使って処理を行う。
 ここまでは処理が中心に進む。
 しかし、DB を使用した場合、UseCaseからDomainを介して、Infra を利用することになる。
 UseCase → Domain → Infra (DBを使用したい為に、依存性が外を向く)
