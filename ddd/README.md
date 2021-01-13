@@ -20,14 +20,15 @@ UseCase → Domain → Infra (DBを使用したい為に、依存性が外を向
 DDDではこれを解消する為に、 [依存性逆転の法則](https://medium.com/eureka-engineering/go-dependency-inversion-principle-8ffaf7854a55)  を使う。
 
 ### 依存性逆転の仕方
-① Domain層 において、 DB とのやりとりを interface で定義する。
-interface （後ほどコード内にて UserRepository として出てきます） 自体は実装を持たないので、どこにも依存しない。
-② Infra層から Domain層 に定義した interfaceを実装する。
+① Domain層において、DBとのやりとりをinterfaceで定義する。
+interface自体は実装を持たないので、どこにも依存しない。
+
+② Infra層からDomain層に定義したinterfaceを実装する。
 
 ①, ② の2ステップを踏むことで、まずDomain層はinterfaceに対して処理をお願いするだけ良い。 
-interface は 実装を持たないので依存関係はない。
+interfaceは実装を持たないので依存関係はない。
 
-interface 自体は実装を持たないが、
+interface自体は実装を持たないが、
 Infra層がinterfaceの実装を行っているので、DBにアクセスして処理を行うことができる。
 つまりInfra層がinterfaceへの依存となり 、Domain層に向く。
 
